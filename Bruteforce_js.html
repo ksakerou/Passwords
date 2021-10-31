@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bruteforce for js</title>
+<script>function  brut() {
+
+  var fname = document.Brutform.fname.value.split('');
+  var bth = document.Brutform.bth.value.replace(/[^0-9]/g, '').split('');
+  var pass = document.Brutform.pas.value;
+  var pas = document.Brutform.pas.value.split('');
+  var alp1 = fname.concat(bth);
+  var alphabet = Array.from(new Set(alp1.map(function(x){ return x.toUpperCase()}).concat(alp1.map(function(x){ return x.toLowerCase()}))));
+  if (pas.filter(function(psyb) { return alphabet.indexOf(psyb) == -1}).length != 0) {
+    alert(pas.filter(function(psyb) { return alphabet.indexOf(psyb) == -1}));
+    alert("Password is too hard for me:(");
+    return;
+  }
+  else {
+    alert("🥀Pom9n3m🥀");
+    var beeTime = new Date();
+    var a1;
+    for (var a1=0;a1<alphabet.length;++a1) {
+      for (var a2=0;a2<alphabet.length;++a2) {
+        for (var a3=0;a3<alphabet.length;++a3) {
+          for (var a4=0;a4<alphabet.length;++a4) {
+            for (var a5=0;a5<alphabet.length;++a5) {
+              for (var a6=0;a6<alphabet.length;++a16) {
+                for (var a7=0;a7<alphabet.length;++a7) {
+                  for (var a8=0;a8<alphabet.length;++a8) {
+                    var psv = alphabet[a1]+alphabet[a2]+alphabet[a3]+alphabet[a4]+alphabet[a5]+alphabet[a6]+alphabet[a7]+alphabet[a8];
+                    //alert(psv+"?=" + pass);
+                    if (pass == psv){
+                      var curTime = new Date();
+                      alert("Success! Your password is hacked by"+((curTime.valueOf()-beeTime.valueOf())/1000)+" sec.");
+                      return;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+}
+  </script>
+</head>
+  <body>
+  <form name="Brutform" onsubmit="brut()">
+    <p style="font-size: 20px;"><b>Date of birthday:</b></p>
+    <input type="date" name="bth" required>
+    <p style="font-size: 20px;"><b>Your name:</b></p>
+    <input type="text" name="fname" required size=10 placeholder="Artem" style="font-size: 20px;">
+    <p style="font-size: 20px;"><b>Password:</b></p>
+    <input type="password" name="pas" required size=5 placeholder="********" maxlength=8 minlength=8 style="font-size: 25px; ">
+    <p><input type="submit" name="submit" value="Отправить"></p>
+  </form>
+  </body>
+</html>
