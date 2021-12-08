@@ -75,10 +75,11 @@ while True:
     #2) artems + worstpass
 
     with open('500-worst-passwords.txt',"r", encoding = "utf-8") as worstpass:
+        words = worstpass.readlines()
         for name in names:
-            for word in worstpass:
+            for word in words:
                 word = word[:-1]
-                lst = [fence(name,word),fence(word,name),name + word,word + name]
+                lst = [fence(name,word),fence(word,name),name + word,word + name,word]
                 if password in lst:
                     endd(begin)
                     
@@ -88,7 +89,7 @@ while True:
     with open("mydict.txt","r", encoding = "utf-8") as mydict:
         words = mydict.readlines()
         for word in words:
-            if word == password:
+            if word[:-1] == password:
                 endd(begin)
                 
     print("Sorry. My script can't crack your password. You passed the test:)")
